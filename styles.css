@@ -1,15 +1,11 @@
 /* Created by Tivotal */
 
-/* Google Fonts(Poppins) */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
 * {
-  font-family: "Poppins", sans-serif;
-  text-decoration: none;
-  list-style: none;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
 }
 
 body {
@@ -29,9 +25,9 @@ body {
   justify-content: center;
 }
 
-.menu .menu-toggle {
-  width: 40px;
-  height: 40px;
+.menu-toggle {
+  width: 60px;
+  height: 60px;
   background: #000;
   border-radius: 50%;
   font-size: 32px;
@@ -43,7 +39,6 @@ body {
   cursor: pointer;
   transition: 1.5s;
 }
-
 .menu.active .menu-toggle {
   transform: rotate(315deg);
 }
@@ -52,7 +47,7 @@ body {
   position: absolute;
   left: 0;
   /* transform: rotate(calc(360deg / 8 * var(--i))); */
-  transform: rotate(0deg) translateX(100px);
+  transform: rotate(0deg) translateX(105px);
   transform-origin: 130px;
   transition: 0.5s;
   transition-delay: calc(0.1s * var(--i));
@@ -63,43 +58,24 @@ body {
 }
 
 .menu li a {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
-  filter: drop-shadow(0 0 2px var(--clr));
   transform: rotate(calc(360deg / -8 * var(--i)));
-  transition: 1s;
+  rotate: 135deg;
+  font-size: 22px;
   color: transparent;
-  transition-delay: 0.5s;
+  transition-delay: 1.5s;
 }
 
 .menu.active li a {
-  width: 50px;
-  height: 50px;
-  background: #000;
   color: var(--clr);
-  border: 2px solid var(--clr);
-  /*   display: flex;
-  align-items: center;
-  justify-content: center; */
-  border-radius: 10px;
-  filter: drop-shadow(0 0 5px var(--clr));
-  /*  transform: rotate(calc(360deg / -8 * var(--i))); */
-  rotate: 135deg;
-  transition: transform 0.5s, height 0.5s, width 0.5s;
-  transition-delay: 0.5s, 1.5s, 1.5s;
 }
 
 .menu.active li a i {
   transform: rotate(-135deg);
-}
-
-.menu.active li:hover a {
-  background: var(--clr);
-  color: #000;
 }
 
 .menu li a::before {
@@ -108,8 +84,27 @@ body {
   width: 20px;
   height: 2px;
   background: var(--clr);
-  border-radius: 2px;
-  transform: rotate(calc(90deg * var(--i))) translate(0, 25px);
+  border: 2px solid var(--clr);
+  border-radius: 10px;
+  transform: rotate(calc(90deg * var(--i))) translate(0, 40px);
   transition: width 0.5s, height 0.5s, transform 0.5s;
-  transition-delay: 0.5s, 1s, 1.5s;
+  transition-delay: 1.5s, 1.5s, 1s;
+}
+
+.menu.active li a::before {
+  position: absolute;
+  content: "";
+  width: 50px;
+  height: 50px;
+  background: #000;
+  border: 2px solid var(--clr);
+  border-radius: 10px;
+  box-shadow: 0 0 8px var(--clr);
+  transform: rotate(0);
+  transition: width 0.5s, height 0.5s;
+  transition-delay: 1.5s, 1.5s;
+}
+
+.menu.active li:hover a::before {
+  box-shadow: 0 0 20px var(--clr);
 }
